@@ -17,7 +17,12 @@ module.exports = function(app) {
     
     let userNote = req.body;
     let noteId = uuidv4();
-    userNote = noteId
+    userNote.id = noteId
+
+    db.push(userNote);
+
+    res.json(userNote);
 
   });
+
 }
