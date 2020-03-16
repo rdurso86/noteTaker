@@ -3,12 +3,7 @@ const fs = require("fs");
 const uuidv4 = require("uuid/v4");
 
 module.exports = function(app) {
-  // API GET Requests
-  // Below code handles when users "visit" a page.
-  // In each of the below cases when a user visits a link
-  // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
-  // ---------------------------------------------------------------------------
-
+  
   app.get("/api/notes", function(req, res) {
     res.json(db);
   });
@@ -17,12 +12,14 @@ module.exports = function(app) {
     
     let userNote = req.body;
     let noteId = uuidv4();
-    userNote.id = noteId
+    userNote.id = noteId;
 
     db.push(userNote);
 
-    res.json(userNote);
+    res.json(db);
 
   });
+
+
 
 }
